@@ -1,6 +1,8 @@
 # selenium_cucumber
 
 ## Execution-Command:
+git clone https://github.com/SiriDunukGithub/selenium_cucumber.git
+cd selenium_cucumber
 mvn clean test
 
 ## Execution Report
