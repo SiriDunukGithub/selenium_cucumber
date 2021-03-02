@@ -5,7 +5,11 @@ git clone https://github.com/SiriDunukGithub/selenium_cucumber.git
 
 cd selenium_cucumber
 
-mvn clean test
+mvn clean test -Denvironment="development"
+
+mvn clean test -Denvironment="staging"
+
+mvn clean test -Denvironment="uat"
 
 
 ## Execution Report
