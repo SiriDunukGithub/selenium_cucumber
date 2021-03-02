@@ -15,7 +15,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import com.test.sirisha.utils.Utility;
+import com.test.sirisha.utils.ConfigurationParser;
 import com.test.sirisha.pages.Authentication;
 import com.test.sirisha.pages.Category;
 import com.test.sirisha.pages.Header;
@@ -36,8 +36,8 @@ public class StepsImpl {
 
 	@Before
 	public void before() {
-		Utility.getInstance();
-		driver = Utility.getChromeDriver();
+		ConfigurationParser.getInstance();
+		driver = ConfigurationParser.getChromeDriver();
 		orderNumber = "";
 		expectedFirstName = "";
 		firstNameBeforeChange = "";
@@ -50,7 +50,7 @@ public class StepsImpl {
 
 	@Given("^I have Opened Webpage for AutomationPractice$")
 	public void inBrowserEnterUrl() throws Throwable {
-	    driver.get(Utility.getUrl());
+	    driver.get(ConfigurationParser.getUrl());
 	}
 
 	@Given("^Logged into Account using valid loging Credentials$")
@@ -152,7 +152,7 @@ public class StepsImpl {
 		MyAccount myAccount = PageFactory.initElements(driver, MyAccount.class);
 		myAccount.clickPersonalInformationBtn();
 		String actualFirstName = myAccount.getFirstName();
-		assertEquals("FirstName has not changed", Utility.capitalize(expectedFirstName), actualFirstName);
+		assertEquals("FirstName has not changed", ConfigurationParser.capitalize(expectedFirstName), actualFirstName);
 		changeFirstNameWith(firstNameBeforeChange);
 	}
 }

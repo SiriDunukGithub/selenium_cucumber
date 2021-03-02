@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import com.test.sirisha.utils.Utility;
+import com.test.sirisha.utils.WebpageHelper;
 
 /**
  * @author Sirisha Dunukunala
@@ -46,11 +46,11 @@ public final class Category extends Header {
 	
 	public void addFirstProduct() {
 		hooverFirstItemInProductList();
-		Utility.waitforElement(_driver, addFirstProductToCart).click();
+		WebpageHelper.waitforElement(_driver, addFirstProductToCart).click();
 	}
 
 	public void proceedToCheckout() {
-		Utility.waitforElement(_driver, proceedToCheckout).click();
+		WebpageHelper.waitforElement(_driver, proceedToCheckout).click();
 	}
 	
 }

@@ -1,5 +1,17 @@
 {
-	"url": "http://automationpractice.com/",
-	"userName": "siri.rajravipati@gmail.com", 
-	"password": "qualitest"
+ 	"development": {
+		"url": "http://automationpractice.com/",
+		"userName": "siri.rajravipati@gmail.com", 
+		"password": "password"
+	},
+	"staging": {
+		"url": "http://automationpractice.com/",
+		"userName": "siridun07@gmail.com", 
+		"password": "tester"
+	},
+	"uat": {
+		"url": "http://automationpractice.com/",
+		"userName": "siri.rajravipati@gmail.com", 
+		"password": "password"
+	} 
 }

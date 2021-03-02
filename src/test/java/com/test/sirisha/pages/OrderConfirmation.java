@@ -3,7 +3,7 @@ package com.test.sirisha.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import com.test.sirisha.utils.Utility;
+import com.test.sirisha.utils.WebpageHelper;
 /**
  * @author Sirisha Dunukunala
  *
@@ -18,7 +18,7 @@ public final class OrderConfirmation extends Header {
 	}
 
 	public String getOrderNumber() {
-		Utility.waitforElement(_driver, getOrderNumberText);
+		WebpageHelper.waitforElement(_driver, getOrderNumberText);
 		String textWithOrderNumber = getOrderNumberText.getText();
 		String searchString = "Do not forget to insert your order reference";
 		int index1 = textWithOrderNumber.indexOf(searchString);

@@ -5,7 +5,9 @@ package com.test.sirisha.pages;
 
 import java.util.List;
 
-import com.test.sirisha.utils.Utility;
+import com.test.sirisha.utils.ConfigurationParser;
+import com.test.sirisha.utils.WebpageHelper;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -57,7 +59,7 @@ public final class MyAccount extends Header {
 	}
 
 	public boolean isOrderPresent(String orderNumber) {
-		Utility.waitforElement(_driver, firstItemInOrderHistoryTable);
+		WebpageHelper.waitforElement(_driver, firstItemInOrderHistoryTable);
 		List<WebElement> rows = orderHistoryTable .findElements(By.tagName("tr"));
 		for(int i=0; i<rows.size(); i++) {
 			List<WebElement> cols = rows.get(i).findElements(By.tagName("td"));
@@ -80,9 +82,9 @@ public final class MyAccount extends Header {
 	}
 	
 	public void clickSaveInPersonalInfo() {
-		currentPassword.sendKeys(Utility.getPassword());
-		newPassword.sendKeys(Utility.getPassword());
-		confirmationPassword.sendKeys(Utility.getPassword());
+		currentPassword.sendKeys(ConfigurationParser.getPassword());
+		newPassword.sendKeys(ConfigurationParser.getPassword());
+		confirmationPassword.sendKeys(ConfigurationParser.getPassword());
 		personamInformationSave.click();
 	}
 }

@@ -3,7 +3,7 @@
  */
 package com.test.sirisha.pages;
 
-import com.test.sirisha.utils.Utility;
+import com.test.sirisha.utils.ConfigurationParser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,17 +29,17 @@ public final class Authentication extends Header {
 	}
 	
 	public void setEmailId() {
-		Utility.getInstance();
-		emailIdTextBox.sendKeys(Utility.getUsername());
+		ConfigurationParser.getInstance();
+		emailIdTextBox.sendKeys(ConfigurationParser.getUsername());
 	}
 
 	public void setPassword() {
-		Utility.getInstance();
-		passwordTextBox.sendKeys(Utility.getPassword());
+		ConfigurationParser.getInstance();
+		passwordTextBox.sendKeys(ConfigurationParser.getPassword());
 	}
 
 	public void signIn() {
-		Utility.getInstance();
+		ConfigurationParser.getInstance();
 		signInBtn.click();
 	}
 

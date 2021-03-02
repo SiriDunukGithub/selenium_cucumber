@@ -13,14 +13,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Utility {
+public class ConfigurationParser {
 	static JSONParser jsonParser;
 	static JSONObject jsonObject;
-
-	private static Utility singleton = new Utility( );
+	static String env;
+	private static ConfigurationParser singleton = new ConfigurationParser( );
 
    /* Static 'instance' method */
-   public static Utility getInstance( ) {
+   public static ConfigurationParser getInstance( ) {
       return singleton;
    }
 
@@ -40,10 +40,13 @@ public class Utility {
 		return (getHomeDir() + "\\src\\test\\resources\\config\\config.json");					
 	}
 	
-	private Utility() {
+	private ConfigurationParser() {
 		jsonParser = new JSONParser();
+		env = System.getProperty("environment");
+
 		try {
-			jsonObject = (JSONObject) jsonParser.parse(new FileReader(getJsonFile()));
+			JSONObject jsonFileObject = (JSONObject) jsonParser.parse(new FileReader(getJsonFile()));
+			jsonObject = (JSONObject)jsonFileObject.get(env);
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
 		} catch (IOException e) {
@@ -54,6 +57,7 @@ public class Utility {
 	}
 	
 	public static String getUsername() {
+		
 		return (String)jsonObject.get("userName");
 	}
 
@@ -66,16 +70,10 @@ public class Utility {
 	}
 	
 	public static WebDriver getChromeDriver() {
-		System.setProperty("webdriver.chrome.driver", Utility.getChromeDirver());					
+		System.setProperty("webdriver.chrome.driver", ConfigurationParser.getChromeDirver());					
 	    WebDriver driver= new ChromeDriver();					
 	    driver.manage().window().maximize();
 	    return driver;
-	}
-	
-	public static WebElement waitforElement(WebDriver driver, WebElement element) {
-		WebElement myDynamicElement = (new WebDriverWait(driver, 10))
-				.until(ExpectedConditions.elementToBeClickable(element));
-		return myDynamicElement;
 	}
 	
 	public static String capitalize(String normalString) {
