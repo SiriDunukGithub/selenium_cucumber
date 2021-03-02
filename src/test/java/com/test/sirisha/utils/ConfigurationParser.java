@@ -42,8 +42,8 @@ public class ConfigurationParser {
 	
 	private ConfigurationParser() {
 		jsonParser = new JSONParser();
-		env = System.getProperty("environment");
-
+		env = System.getProperty("environment", "development");
+		
 		try {
 			JSONObject jsonFileObject = (JSONObject) jsonParser.parse(new FileReader(getJsonFile()));
 			jsonObject = (JSONObject)jsonFileObject.get(env);
