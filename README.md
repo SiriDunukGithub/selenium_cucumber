@@ -11,6 +11,8 @@ mvn clean test -Denvironment="staging"
 
 mvn clean test -Denvironment="uat"
 
+### default to development:
+mvn clean test
 
 ## Execution Report
 -------------------------------------------------------
